@@ -1,0 +1,21 @@
+<p>
+  user-data-form works!
+</p>
+<form [formGroup]="formGroup" (ngSubmit)="onSubmit()">
+
+  <label> name: 
+    <input [formControl]="formGroup.controls['name']" type="text" name='name'>
+  </label><br>
+  <div *ngIf="!formGroup.controls['name'].valid"> name invalid </div>
+  <label> email: 
+    <input [formControl]="formGroup.controls['email']" type="text" name='email'>
+  </label><br>
+  <label> post: 
+    <textarea [formControl]="formGroup.controls['post']" name='email' rows='4' cols='50'></textarea>
+  </label><br>
+  
+  <button type='submit' [disabled]="!formGroup.valid"> Submit </button>
+
+  <button type='button' (click)="getData()">Get Data</button>
+
+</form>
